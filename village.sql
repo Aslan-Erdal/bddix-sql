@@ -123,11 +123,12 @@ join habitant h on h.num_hab  = a.num_hab
 group by h.nom;
 
 --27. Nom des habitants ayant bu plus de 2 louches de potion zen. (1 ligne)
-select  h.nom as "Nom d'habitant", a.quantite from potion p 
-join absorber a on a.num_potion = 4 
+select  h.nom as "Nom des habitants" from potion p 
+join absorber a on a.num_potion = p.num_potion 
 join habitant h on h.num_hab  = a.num_hab
- where a.quantite > 2
-group by h.nom, a.quantite;
+where p.lib_potion = 'Potion Zen'
+ and a.quantite > 2
+group by h.nom;
 
 --***
 --28. Noms des villages dans lesquels on trouve une resserre (3 lignes)
