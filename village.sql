@@ -9,14 +9,14 @@ select c.nom_categ from categorie c where c.nb_points = 3;
 select nom_village from village where nb_huttes > 35;
 
 --4. Liste des trophées (numéros) pris en mai / juin 52. (4 lignes)
-SELECT *
+SELECT t.num_trophee
 FROM trophee as t
 WHERE t.date_prise  BETWEEN '2052-05-01' AND '2052-06-30';
 
 --5. Noms des habitants commençant par 'a' et contenant la lettre 'r'. (3 lignes)
-SELECT nom_village
-FROM village
-WHERE nom_village like any (values('A%'), ('%r%'));
+select h.nom 
+from habitant h
+where h.nom like 'A%r%';
 
 --6. Numéros des habitants ayant bu les potions numéros 1, 3 ou 4. (8 lignes)
 select distinct num_hab from absorber where num_potion= 1 or num_potion=3 or num_potion=4;
